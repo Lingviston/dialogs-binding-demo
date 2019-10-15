@@ -1,4 +1,4 @@
-package by.ve.dialogsbinding.ui.demo.solution3
+package by.ve.dialogsbinding.ui.demo.dialog.solution3
 
 import by.ve.dialogsbinding.ui.dialog.common.IDialogViewModel
 

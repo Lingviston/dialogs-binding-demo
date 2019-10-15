@@ -19,8 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="by.ve.dialogsbinding.ui.demo.solution1.Solution1Activity" />
-        <activity android:name="by.ve.dialogsbinding.ui.demo.solution2.Solution2Activity" />
-        <activity android:name="by.ve.dialogsbinding.ui.demo.solution3.Solution3Activity" />
+        <activity android:name="by.ve.dialogsbinding.ui.demo.dialog.solution1.Solution1Activity" />
+        <activity android:name="by.ve.dialogsbinding.ui.demo.dialog.solution2.Solution2Activity" />
+        <activity android:name="by.ve.dialogsbinding.ui.demo.dialog.solution3.Solution3Activity" />
     </application>
 </manifest>

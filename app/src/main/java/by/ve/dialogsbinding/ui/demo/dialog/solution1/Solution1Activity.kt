@@ -1,4 +1,4 @@
-package by.ve.dialogsbinding.ui.demo.solution1
+package by.ve.dialogsbinding.ui.demo.dialog.solution1
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

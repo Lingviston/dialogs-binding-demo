@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="by.ve.dialogsbinding.ui.demo.solution3.Solution3ViewModel" />
+            type="by.ve.dialogsbinding.ui.demo.dialog.solution3.Solution3ViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="@{viewModel.errorDialogUiConfig.message}"
+            android:text="@{viewModel.errorDialogConfig.message}"
             app:layout_constraintBaseline_toBaselineOf="@id/retry"
             app:layout_constraintEnd_toStartOf="@id/retry"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.errorDialogUiConfig.positiveButtonText}"
+            android:text="@{viewModel.errorDialogConfig.positiveButtonText}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:onClick="@{viewModel.errorDialogViewModel::onPositiveButtonClick}"

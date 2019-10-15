@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="by.ve.dialogsbinding.ui.demo.solution3.Solution3ViewModel" />
+            type="by.ve.dialogsbinding.ui.demo.dialog.solution3.Solution3ViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

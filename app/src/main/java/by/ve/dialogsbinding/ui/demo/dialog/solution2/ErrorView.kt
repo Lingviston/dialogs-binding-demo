@@ -1,4 +1,4 @@
-package by.ve.dialogsbinding.ui.demo.solution2
+package by.ve.dialogsbinding.ui.demo.dialog.solution2
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner

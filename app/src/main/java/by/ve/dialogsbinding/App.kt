@@ -5,13 +5,13 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleOwner
 import by.ve.dialogsbinding.service.FirstTryFailingService
 import by.ve.dialogsbinding.ui.demo.chooser.SolutionChooserViewModel
+import by.ve.dialogsbinding.ui.demo.dialog.solution1.Solution1ViewModel
+import by.ve.dialogsbinding.ui.demo.dialog.solution2.ErrorView
+import by.ve.dialogsbinding.ui.demo.dialog.solution2.Solution2ViewModel
+import by.ve.dialogsbinding.ui.demo.dialog.solution3.Solution3ViewModel
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogEventBus
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogNavigator
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogViewModel
-import by.ve.dialogsbinding.ui.demo.solution1.Solution1ViewModel
-import by.ve.dialogsbinding.ui.demo.solution2.ErrorView
-import by.ve.dialogsbinding.ui.demo.solution2.Solution2ViewModel
-import by.ve.dialogsbinding.ui.demo.solution3.Solution3ViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin

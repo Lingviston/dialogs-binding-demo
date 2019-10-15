@@ -1,6 +1,5 @@
-package by.ve.dialogsbinding.ui.demo.solution2
+package by.ve.dialogsbinding.ui.demo.dialog.base
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import by.ve.dialogsbinding.service.FirstTryFailingService
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -8,24 +7,23 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.plusAssign
 import io.reactivex.rxkotlin.subscribeBy
 
-class Solution2ViewModel(
+
+abstract class BaseSolutionViewModel(
     private val service: FirstTryFailingService
-) : ViewModel() {
+) : ViewModel(), SolutionViewModel {
 
-    val isDialogVisible = MutableLiveData<Boolean>()
-
-    private val disposables = CompositeDisposable()
+    protected val disposables = CompositeDisposable()
 
     init {
         doRequest()
     }
 
-    fun onErrorCancel() {
-        isDialogVisible.value = false
+    override fun onErrorCancel() {
+        hideErrorDialog()
     }
 
-    fun onErrorRetry() {
-        isDialogVisible.value = false
+    override fun onErrorRetry() {
+        hideErrorDialog()
         doRequest()
     }
 
@@ -33,12 +31,8 @@ class Solution2ViewModel(
         disposables += service.request()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
-                onError = ::showErrorDialog
+                onError = { showErrorDialog() }
             )
-    }
-
-    private fun showErrorDialog(error: Throwable) {
-        isDialogVisible.value = true
     }
 
     override fun onCleared() {

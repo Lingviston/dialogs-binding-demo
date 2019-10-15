@@ -8,10 +8,10 @@ import androidx.databinding.DataBindingUtil
 import by.ve.dialogsbinding.R
 import by.ve.dialogsbinding.databinding.ActivitySolutionChooserBinding
 import by.ve.dialogsbinding.lifecycle.observe
-import by.ve.dialogsbinding.ui.demo.solution1.Solution1Activity
-import by.ve.dialogsbinding.ui.demo.solution2.Solution2Activity
-import by.ve.dialogsbinding.ui.demo.solution3.ErrorStyle
-import by.ve.dialogsbinding.ui.demo.solution3.Solution3Activity
+import by.ve.dialogsbinding.ui.demo.dialog.solution1.Solution1Activity
+import by.ve.dialogsbinding.ui.demo.dialog.solution2.Solution2Activity
+import by.ve.dialogsbinding.ui.demo.dialog.solution3.ErrorStyle
+import by.ve.dialogsbinding.ui.demo.dialog.solution3.Solution3Activity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.reflect.KClass
 
