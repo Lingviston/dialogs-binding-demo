@@ -10,3 +10,10 @@ fun View.onClick(listener: (() -> Unit)?) {
         listener?.invoke()
     }
 }
+
+@BindingAdapter("visibleOrGone")
+fun View.visibleOrGone(isVisible: Boolean?) {
+    if (isVisible != null) {
+        visibility = if (isVisible) View.VISIBLE else View.GONE
+    }
+}

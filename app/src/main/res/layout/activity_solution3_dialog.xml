@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="by.ve.dialogsbinding.ui.demo.solution3.Solution3ViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <by.ve.dialogsbinding.ui.dialog.view.DialogShowingView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:dialogConfig="@{viewModel.errorDialogConfig}"
+            app:dialogLayout="@layout/dialog_error"
+            app:dialogStyle="@style/Theme.AppCompat.Dialog"
+            app:dialogViewModel="@{viewModel.errorDialogViewModel}"
+            app:visibleOrGone="@{viewModel.isDialogVisible}"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

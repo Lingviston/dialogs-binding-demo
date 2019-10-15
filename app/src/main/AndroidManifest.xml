@@ -9,17 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:name=".App"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
-        <activity android:name=".solutions.chooser.SolutionChooserActivity">
+        <activity android:name="by.ve.dialogsbinding.ui.demo.chooser.SolutionChooserActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".solutions.solution1.Solution1Activity" />
-        <activity android:name=".solutions.solution2.Solution2Activity" />
-        <activity android:name=".solutions.solution3.Solution3Activity" />
+        <activity android:name="by.ve.dialogsbinding.ui.demo.solution1.Solution1Activity" />
+        <activity android:name="by.ve.dialogsbinding.ui.demo.solution2.Solution2Activity" />
+        <activity android:name="by.ve.dialogsbinding.ui.demo.solution3.Solution3Activity" />
     </application>
 </manifest>

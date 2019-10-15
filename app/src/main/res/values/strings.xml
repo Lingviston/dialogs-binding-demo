@@ -2,5 +2,6 @@
     <string name="app_name">DialogsBinding</string>
     <string name="solution_1">Solution 1</string>
     <string name="solution_2">Solution 2</string>
-    <string name="solution_3">Solution 3</string>
+    <string name="solution_3_dialog">Solution 3 (Dialog)</string>
+    <string name="solution_3_embed">Solution 3 (Embed)</string>
 </resources>

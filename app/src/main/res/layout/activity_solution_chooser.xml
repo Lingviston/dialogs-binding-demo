@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="by.ve.dialogsbinding.solutions.chooser.SolutionChooserViewModel" />
+            type="by.ve.dialogsbinding.ui.demo.chooser.SolutionChooserViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,21 +30,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/solution_2"
-            app:layout_constraintBottom_toTopOf="@id/solution3Button"
+            app:layout_constraintBottom_toTopOf="@id/solution3DialogButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/solution1Button"
             app:onClick="@{viewModel::onSolution2Click}" />
 
+
         <Button
-            android:id="@+id/solution3Button"
+            android:id="@+id/solution3DialogButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/solution_3"
+            android:text="@string/solution_3_dialog"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/solution3EmbedButton"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/solution2Button"
-            app:onClick="@{viewModel::onSolution3Click}" />
+            app:onClick="@{viewModel::onSolution3DialogClick}" />
+
+        <Button
+            android:id="@+id/solution3EmbedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/solution_3_dialog"
+            app:layout_constraintBaseline_toBaselineOf="@id/solution3DialogButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/solution3DialogButton"
+            app:onClick="@{viewModel::onSolution3EmbedClick}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
