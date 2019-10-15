@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="by.ve.dialogsbinding.ui.demo.dialog.base.SolutionViewModel" />
+    </data>
+
+    <merge>
+
+        <Button
+            android:id="@+id/doRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/do_request"
+            app:onClick="@{viewModel::doRequest}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@{viewModel.dialogState}"
+            app:layout_constraintBaseline_toBaselineOf="@id/doRequest"
+            app:layout_constraintStart_toEndOf="@id/doRequest"
+            tools:text="Dialog invisible" />
+    </merge>
+</layout>

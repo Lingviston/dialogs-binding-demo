@@ -10,7 +10,7 @@ class Solution3ViewModel(
     service: FirstTryFailingService
 ) : BaseSolutionViewModel(service) {
 
-    val isDialogVisible = MutableLiveData<Boolean>()
+    val isDialogVisible = MutableLiveData<Boolean>(false)
 
     val errorDialogConfig = DialogUiConfig(
         title = "Error",
@@ -25,10 +25,12 @@ class Solution3ViewModel(
     )
 
     override fun showErrorDialog() {
+        super.showErrorDialog()
         isDialogVisible.value = true
     }
 
     override fun hideErrorDialog() {
+        super.hideErrorDialog()
         isDialogVisible.value = false
     }
 }

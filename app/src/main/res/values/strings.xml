@@ -4,4 +4,5 @@
     <string name="solution_2">Solution 2</string>
     <string name="solution_3_dialog">Solution 3 (Dialog)</string>
     <string name="solution_3_embed">Solution 3 (Embed)</string>
+    <string name="do_request">Do request</string>
 </resources>

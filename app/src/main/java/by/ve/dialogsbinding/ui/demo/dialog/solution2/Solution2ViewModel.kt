@@ -8,13 +8,15 @@ class Solution2ViewModel(
     service: FirstTryFailingService
 ) : BaseSolutionViewModel(service) {
 
-    val isDialogVisible = MutableLiveData<Boolean>()
+    val isDialogVisible = MutableLiveData<Boolean>(false)
 
     override fun showErrorDialog() {
+        super.showErrorDialog()
         isDialogVisible.value = true
     }
 
     override fun hideErrorDialog() {
+        super.hideErrorDialog()
         isDialogVisible.value = false
     }
 }

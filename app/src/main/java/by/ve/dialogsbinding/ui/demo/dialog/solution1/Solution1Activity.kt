@@ -2,6 +2,9 @@ package by.ve.dialogsbinding.ui.demo.dialog.solution1
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import by.ve.dialogsbinding.R
+import by.ve.dialogsbinding.databinding.ActivitySolutionBinding
 import by.ve.dialogsbinding.lifecycle.observe
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogNavigator
 import org.koin.android.ext.android.inject
@@ -17,6 +20,11 @@ class Solution1Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        DataBindingUtil.setContentView<ActivitySolutionBinding>(this, R.layout.activity_solution)
+            .also {
+                it.lifecycleOwner = this
+                it.viewModel = viewModel
+            }
         observe(viewModel.showErrorDialogEvent) {
             dialogNavigator.showDialog(it.tag, it.uiConfig)
         }
