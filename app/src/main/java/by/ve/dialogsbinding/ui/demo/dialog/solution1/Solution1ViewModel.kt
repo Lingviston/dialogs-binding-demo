@@ -40,7 +40,6 @@ class Solution1ViewModel(
     }
 
     override fun showErrorDialog() {
-        super.showErrorDialog()
         showErrorDialogEvent.value = ShowDialogEvent(
             tag = DIALOG_TAG,
             uiConfig = DialogUiConfig(
@@ -53,7 +52,6 @@ class Solution1ViewModel(
     }
 
     override fun hideErrorDialog() {
-        super.hideErrorDialog()
         hideDialogEvent.value = DIALOG_TAG
     }
 }

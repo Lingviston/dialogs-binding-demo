@@ -1,6 +1,5 @@
 package by.ve.dialogsbinding.ui.demo.dialog.base
 
-import androidx.annotation.CallSuper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,9 +14,9 @@ abstract class BaseSolutionViewModel(
     private val service: FirstTryFailingService
 ) : ViewModel(), SolutionViewModel {
 
-    private val _dialogState = MutableLiveData<String>(STATE_INVISIBLE)
+    private val _requestState = MutableLiveData<String>(STATE_NOT_DONE)
 
-    override val dialogState: LiveData<String> get() = _dialogState
+    override val requestState: LiveData<String> get() = _requestState
 
     private val disposables = CompositeDisposable()
 
@@ -30,21 +29,17 @@ abstract class BaseSolutionViewModel(
         doRequest()
     }
 
-    @CallSuper
-    override fun showErrorDialog() {
-        _dialogState.value = STATE_VISIBLE
-    }
-
-    @CallSuper
-    override fun hideErrorDialog() {
-        _dialogState.value = STATE_INVISIBLE
-    }
-
     override fun doRequest() {
         disposables += service.request()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
-                onError = { showErrorDialog() }
+                onComplete = {
+                    _requestState.value = STATE_SUCCESS
+                },
+                onError = {
+                    _requestState.value = STATE_ERROR
+                    showErrorDialog()
+                }
             )
     }
 

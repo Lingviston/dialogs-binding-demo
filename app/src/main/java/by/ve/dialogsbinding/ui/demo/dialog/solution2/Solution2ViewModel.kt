@@ -11,12 +11,10 @@ class Solution2ViewModel(
     val isDialogVisible = MutableLiveData<Boolean>(false)
 
     override fun showErrorDialog() {
-        super.showErrorDialog()
         isDialogVisible.value = true
     }
 
     override fun hideErrorDialog() {
-        super.hideErrorDialog()
         isDialogVisible.value = false
     }
 }

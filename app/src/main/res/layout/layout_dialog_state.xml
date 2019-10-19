@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="@{viewModel.dialogState}"
+            android:text="@{viewModel.requestState}"
             app:layout_constraintBaseline_toBaselineOf="@id/doRequest"
             app:layout_constraintStart_toEndOf="@id/doRequest"
             tools:text="Dialog invisible" />

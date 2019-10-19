@@ -2,13 +2,15 @@ package by.ve.dialogsbinding.ui.demo.dialog.base
 
 import androidx.lifecycle.LiveData
 
-const val STATE_VISIBLE = "Dialog is visible"
+const val STATE_NOT_DONE = "Request NOT DONE"
 
-const val STATE_INVISIBLE = "Dialog is invisible"
+const val STATE_SUCCESS = "Request SUCCESSFUL"
+
+const val STATE_ERROR = "Request FAILED"
 
 interface SolutionViewModel {
 
-    val dialogState: LiveData<String>
+    val requestState: LiveData<String>
 
     fun doRequest()
 
