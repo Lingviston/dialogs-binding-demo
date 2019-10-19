@@ -11,6 +11,9 @@ import by.ve.dialogsbinding.BR
 import by.ve.dialogsbinding.R
 import by.ve.dialogsbinding.lifecycle.observeEmptyEvent
 import by.ve.dialogsbinding.ui.dialog.common.DialogUiConfig
+import by.ve.dialogsbinding.ui.dialog.fragment.DialogEvent.NegativeButtonClickEvent
+import by.ve.dialogsbinding.ui.dialog.fragment.DialogEvent.PositiveButtonClickEvent
+import org.greenrobot.eventbus.EventBus
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -27,7 +30,7 @@ class CommonDialogFragment : DialogFragment() {
         }
     }
 
-    private val dialogEventBus by inject<DialogEventBus>()
+    private val dialogEventBus by inject<EventBus>()
 
     private val viewModel by viewModel<DialogViewModel>()
 
@@ -37,10 +40,10 @@ class CommonDialogFragment : DialogFragment() {
         super.onCreate(savedInstanceState)
         isCancelable = false
         observeEmptyEvent(viewModel.positiveButtonClickEvent) {
-            dialogEventBus.sendEvent(tag!!, DialogEvent.PositiveButtonClickEvent)
+            dialogEventBus.post(PositiveButtonClickEvent(tag!!))
         }
         observeEmptyEvent(viewModel.negativeButtonClickEvent) {
-            dialogEventBus.sendEvent(tag!!, DialogEvent.NegativeButtonClickEvent)
+            dialogEventBus.post(NegativeButtonClickEvent(tag!!))
         }
     }
 

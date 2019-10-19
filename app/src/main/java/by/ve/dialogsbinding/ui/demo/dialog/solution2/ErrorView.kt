@@ -4,18 +4,19 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import by.ve.dialogsbinding.lifecycle.observe
 import by.ve.dialogsbinding.ui.dialog.common.DialogUiConfig
-import by.ve.dialogsbinding.ui.dialog.fragment.DialogEvent
-import by.ve.dialogsbinding.ui.dialog.fragment.DialogEventBus
+import by.ve.dialogsbinding.ui.dialog.fragment.DialogEvent.NegativeButtonClickEvent
+import by.ve.dialogsbinding.ui.dialog.fragment.DialogEvent.PositiveButtonClickEvent
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogNavigator
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.rxkotlin.plusAssign
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 private const val DIALOG_TAG = "Error"
 
 class ErrorView(
     private val lifecycleOwner: LifecycleOwner,
     private val dialogNavigator: DialogNavigator,
-    private val dialogEventBus: DialogEventBus
+    private val dialogEventBus: EventBus
 ) : DefaultLifecycleObserver {
 
     var viewModel: Solution2ViewModel? = null
@@ -34,26 +35,27 @@ class ErrorView(
             negativeButtonText = "Cancel"
         )
     }
-    private val disposables = CompositeDisposable()
 
     init {
         lifecycleOwner.lifecycle.addObserver(this)
     }
 
     override fun onCreate(owner: LifecycleOwner) {
-        disposables += dialogEventBus.getEvents(DIALOG_TAG)
-            .subscribe {
-                when (it) {
-                    is DialogEvent.PositiveButtonClickEvent ->
-                        viewModel?.onErrorRetry()
-                    is DialogEvent.NegativeButtonClickEvent ->
-                        viewModel?.onErrorCancel()
-                }
-            }
+        dialogEventBus.register(this)
     }
 
     override fun onDestroy(owner: LifecycleOwner) {
-        disposables.dispose()
+        dialogEventBus.unregister(this)
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onPositiveButtonClick(event: PositiveButtonClickEvent) {
+        event.doIfTagMatches(DIALOG_TAG) { viewModel?.onErrorRetry() }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onNegativeButtonClick(event: NegativeButtonClickEvent) {
+        event.doIfTagMatches(DIALOG_TAG) { viewModel?.onErrorCancel() }
     }
 
     private fun bind(viewModel: Solution2ViewModel) {

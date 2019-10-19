@@ -1,9 +1,15 @@
 package by.ve.dialogsbinding.ui.dialog.fragment
 
 
-sealed class DialogEvent {
+sealed class DialogEvent(private val dialogTag: String) {
 
-    object PositiveButtonClickEvent : DialogEvent()
+    fun doIfTagMatches(expectedTag: String, action: () -> Unit) {
+        if (expectedTag == dialogTag) {
+            action.invoke()
+        }
+    }
 
-    object NegativeButtonClickEvent : DialogEvent()
+    class PositiveButtonClickEvent(dialogTag: String) : DialogEvent(dialogTag)
+
+    class NegativeButtonClickEvent(dialogTag: String) : DialogEvent(dialogTag)
 }

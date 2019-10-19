@@ -9,9 +9,9 @@ import by.ve.dialogsbinding.ui.demo.dialog.solution1.Solution1ViewModel
 import by.ve.dialogsbinding.ui.demo.dialog.solution2.ErrorView
 import by.ve.dialogsbinding.ui.demo.dialog.solution2.Solution2ViewModel
 import by.ve.dialogsbinding.ui.demo.dialog.solution3.Solution3ViewModel
-import by.ve.dialogsbinding.ui.dialog.fragment.DialogEventBus
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogNavigator
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogViewModel
+import org.greenrobot.eventbus.EventBus
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -54,7 +54,7 @@ class App : Application() {
 
         val dialogModule = module {
 
-            single { DialogEventBus() }
+            single { EventBus.getDefault() }
 
             viewModel { DialogViewModel() }
 

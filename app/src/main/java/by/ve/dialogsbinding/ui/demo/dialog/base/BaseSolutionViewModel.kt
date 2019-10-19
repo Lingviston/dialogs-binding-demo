@@ -19,7 +19,7 @@ abstract class BaseSolutionViewModel(
 
     override val dialogState: LiveData<String> get() = _dialogState
 
-    protected val disposables = CompositeDisposable()
+    private val disposables = CompositeDisposable()
 
     override fun onErrorCancel() {
         hideErrorDialog()
