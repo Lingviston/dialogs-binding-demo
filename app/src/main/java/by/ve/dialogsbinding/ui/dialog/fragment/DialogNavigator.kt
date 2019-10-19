@@ -1,12 +1,12 @@
 package by.ve.dialogsbinding.ui.dialog.fragment
 
 import androidx.fragment.app.FragmentManager
-import by.ve.dialogsbinding.ui.dialog.common.DialogUiConfig
+import by.ve.dialogsbinding.ui.dialog.common.IDialogUiConfig
 
 
 class DialogNavigator(private val fragmentManager: FragmentManager) {
 
-    fun showDialog(tag: String, uiConfig: DialogUiConfig) {
+    fun showDialog(tag: String, uiConfig: IDialogUiConfig) {
         if (fragmentManager.isFragmentNotExist(tag)) {
             CommonDialogFragment.newInstance(uiConfig).show(fragmentManager, tag)
         }

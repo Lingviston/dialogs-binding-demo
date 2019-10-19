@@ -1,10 +1,9 @@
 package by.ve.dialogsbinding.ui.demo.dialog.solution3
 
 import androidx.lifecycle.MutableLiveData
-import by.ve.dialogsbinding.R
 import by.ve.dialogsbinding.service.FirstTryFailingService
 import by.ve.dialogsbinding.ui.demo.dialog.base.BaseSolutionViewModel
-import by.ve.dialogsbinding.ui.dialog.common.DialogUiConfig
+import by.ve.dialogsbinding.ui.dialog.common.STANDARD_DIALOG_CONFIG
 
 class Solution3ViewModel(
     service: FirstTryFailingService
@@ -12,12 +11,7 @@ class Solution3ViewModel(
 
     val isDialogVisible = MutableLiveData<Boolean>(false)
 
-    val errorDialogConfig = DialogUiConfig(
-        title = R.string.error_title,
-        message = R.string.error_message,
-        positiveButtonText = R.string.error_retry,
-        negativeButtonText = R.string.error_cancel
-    )
+    val errorDialogConfig = STANDARD_DIALOG_CONFIG
 
     val errorDialogViewModel = DialogViewModel(
         positiveClick = ::onErrorRetry,

@@ -1,10 +1,9 @@
 package by.ve.dialogsbinding.ui.demo.dialog.solution1
 
-import by.ve.dialogsbinding.R
 import by.ve.dialogsbinding.lifecycle.SingleLiveEvent
 import by.ve.dialogsbinding.service.FirstTryFailingService
 import by.ve.dialogsbinding.ui.demo.dialog.base.BaseSolutionViewModel
-import by.ve.dialogsbinding.ui.dialog.common.DialogUiConfig
+import by.ve.dialogsbinding.ui.dialog.common.STANDARD_DIALOG_CONFIG
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogEvent.NegativeButtonClickEvent
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogEvent.PositiveButtonClickEvent
 import org.greenrobot.eventbus.EventBus
@@ -41,12 +40,7 @@ class Solution1ViewModel(
     override fun showErrorDialog() {
         dialogControlEvent.value = DialogControlEvent.Show(
             tag = DIALOG_TAG,
-            uiConfig = DialogUiConfig(
-                title = R.string.error_title,
-                message = R.string.error_message,
-                positiveButtonText = R.string.error_retry,
-                negativeButtonText = R.string.error_cancel
-            )
+            uiConfig = STANDARD_DIALOG_CONFIG
         )
     }
 

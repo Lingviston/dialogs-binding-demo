@@ -11,6 +11,7 @@ import by.ve.dialogsbinding.BR
 import by.ve.dialogsbinding.R
 import by.ve.dialogsbinding.lifecycle.observeEmptyEvent
 import by.ve.dialogsbinding.ui.dialog.common.DialogUiConfig
+import by.ve.dialogsbinding.ui.dialog.common.IDialogUiConfig
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogEvent.NegativeButtonClickEvent
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogEvent.PositiveButtonClickEvent
 import org.greenrobot.eventbus.EventBus
@@ -23,7 +24,7 @@ class CommonDialogFragment : DialogFragment() {
 
     companion object {
 
-        fun newInstance(uiConfig: DialogUiConfig) = CommonDialogFragment().apply {
+        fun newInstance(uiConfig: IDialogUiConfig) = CommonDialogFragment().apply {
             arguments = Bundle().apply {
                 putParcelable(EXTRA_UI_CONFIG, uiConfig)
             }

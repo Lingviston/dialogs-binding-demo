@@ -2,9 +2,8 @@ package by.ve.dialogsbinding.ui.demo.dialog.solution2
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import by.ve.dialogsbinding.R
 import by.ve.dialogsbinding.lifecycle.observe
-import by.ve.dialogsbinding.ui.dialog.common.DialogUiConfig
+import by.ve.dialogsbinding.ui.dialog.common.STANDARD_DIALOG_CONFIG
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogEvent.NegativeButtonClickEvent
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogEvent.PositiveButtonClickEvent
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogNavigator
@@ -27,13 +26,6 @@ class ErrorView(
                 bind(it)
             }
         }
-
-    private val errorDialogUiConfig = DialogUiConfig(
-        title = R.string.error_title,
-        message = R.string.error_message,
-        positiveButtonText = R.string.error_retry,
-        negativeButtonText = R.string.error_cancel
-    )
 
     init {
         lifecycleOwner.lifecycle.addObserver(this)
@@ -65,7 +57,7 @@ class ErrorView(
 
     private fun updateErrorDialogState(visible: Boolean) {
         if (visible) {
-            dialogNavigator.showDialog(DIALOG_TAG, errorDialogUiConfig)
+            dialogNavigator.showDialog(DIALOG_TAG, STANDARD_DIALOG_CONFIG)
         } else {
             dialogNavigator.hideDialog(DIALOG_TAG)
         }
