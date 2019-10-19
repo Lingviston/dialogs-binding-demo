@@ -53,7 +53,7 @@
             android:id="@+id/solution3EmbedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/solution_3_dialog"
+            android:text="@string/solution_3_embed"
             app:layout_constraintBaseline_toBaselineOf="@id/solution3DialogButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/solution3DialogButton"
