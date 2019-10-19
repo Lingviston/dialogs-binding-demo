@@ -27,7 +27,7 @@
             android:text="@{uiConfig.title}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Title" />
+            tools:text="@string/error_title" />
 
         <TextView
             android:id="@+id/message"
@@ -39,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title"
-            tools:text="Error message" />
+            tools:text="@string/error_message" />
 
         <Button
             android:id="@+id/positiveButton"
@@ -50,7 +50,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/message"
             app:onClick="@{viewModel::onPositiveButtonClick}"
-            tools:text="Retry" />
+            tools:text="@string/error_retry" />
 
         <Button
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
@@ -60,6 +60,6 @@
             app:layout_constraintEnd_toStartOf="@id/positiveButton"
             app:layout_constraintTop_toBottomOf="@id/message"
             app:onClick="@{viewModel::onNegativeButtonClick}"
-            tools:text="Cancel" />
+            tools:text="@string/error_cancel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

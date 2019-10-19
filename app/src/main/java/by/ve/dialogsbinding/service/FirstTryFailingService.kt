@@ -13,7 +13,7 @@ class FirstTryFailingService {
         Completable.complete()
     } else {
         hasAlreadyFailed = true
-        Completable.error(RuntimeException("I always fail!"))
+        Completable.error(RuntimeException("First call always fails!"))
             .delay(DELAY_SECONDS, TimeUnit.SECONDS)
     }
 }

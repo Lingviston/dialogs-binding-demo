@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <include
-            layout="@layout/layout_dialog_state"
+            layout="@layout/layout_request_state"
             app:viewModel="@{viewModel}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

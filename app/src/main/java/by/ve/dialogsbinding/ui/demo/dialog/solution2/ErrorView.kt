@@ -2,6 +2,7 @@ package by.ve.dialogsbinding.ui.demo.dialog.solution2
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
+import by.ve.dialogsbinding.R
 import by.ve.dialogsbinding.lifecycle.observe
 import by.ve.dialogsbinding.ui.dialog.common.DialogUiConfig
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogEvent.NegativeButtonClickEvent
@@ -27,14 +28,12 @@ class ErrorView(
             }
         }
 
-    private val errorDialogUiConfig by lazy {
-        DialogUiConfig(
-            title = "Error",
-            message = "Request failed",
-            positiveButtonText = "Retry",
-            negativeButtonText = "Cancel"
-        )
-    }
+    private val errorDialogUiConfig = DialogUiConfig(
+        title = R.string.error_title,
+        message = R.string.error_message,
+        positiveButtonText = R.string.error_retry,
+        negativeButtonText = R.string.error_cancel
+    )
 
     init {
         lifecycleOwner.lifecycle.addObserver(this)

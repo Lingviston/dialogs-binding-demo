@@ -5,4 +5,13 @@
     <string name="solution_3_dialog">Solution 3 (Dialog)</string>
     <string name="solution_3_embed">Solution 3 (Embed)</string>
     <string name="do_request">Do request</string>
+
+    <string name="error_title">Error happened</string>
+    <string name="error_message">The first request always fails. Press \"Retry\" to try again or \"Cancel\" to dismiss this message.</string>
+    <string name="error_retry">Retry</string>
+    <string name="error_cancel">Cancel</string>
+
+    <string name="request_state_not_done">Request NOT DONE</string>
+    <string name="request_state_success">Request SUCCESSFUL</string>
+    <string name="request_state_failed">Request FAILED</string>
 </resources>

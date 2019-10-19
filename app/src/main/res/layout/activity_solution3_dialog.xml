@@ -15,7 +15,7 @@
         android:layout_height="match_parent">
 
         <include
-            layout="@layout/layout_dialog_state"
+            layout="@layout/layout_request_state"
             app:viewModel="@{viewModel}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

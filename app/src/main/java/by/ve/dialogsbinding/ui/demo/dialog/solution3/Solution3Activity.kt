@@ -16,7 +16,7 @@ class Solution3Activity : AppCompatActivity() {
 
     private val viewModel by viewModel<Solution3ViewModel>()
 
-    private val errorStyle: ErrorStyle by lazy { intent.getSerializableExtra(EXTRA_ERROR_STYLE) as ErrorStyle}
+    private val errorStyle: ErrorStyle by lazy { intent.getSerializableExtra(EXTRA_ERROR_STYLE) as ErrorStyle }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,15 +24,19 @@ class Solution3Activity : AppCompatActivity() {
     }
 
     private fun bindContentView() {
-        when(errorStyle) {
-            ErrorStyle.DIALOG -> DataBindingUtil.setContentView<ActivitySolution3DialogBinding>(this, R.layout.activity_solution3_dialog)
-                .also {
-                    it.viewModel = viewModel
-                }
-            ErrorStyle.EMBED -> DataBindingUtil.setContentView<ActivitySolution3EmbedBinding>(this, R.layout.activity_solution3_embed)
-                .also {
-                    it.viewModel = viewModel
-                }
+        when (errorStyle) {
+            ErrorStyle.DIALOG -> DataBindingUtil.setContentView<ActivitySolution3DialogBinding>(
+                this,
+                R.layout.activity_solution3_dialog
+            ).also {
+                it.viewModel = viewModel
+            }
+            ErrorStyle.EMBED -> DataBindingUtil.setContentView<ActivitySolution3EmbedBinding>(
+                this,
+                R.layout.activity_solution3_embed
+            ).also {
+                it.viewModel = viewModel
+            }
         }.lifecycleOwner = this
     }
 

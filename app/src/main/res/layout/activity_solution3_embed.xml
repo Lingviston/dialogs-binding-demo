@@ -15,21 +15,25 @@
         android:layout_height="match_parent">
 
         <include
-            layout="@layout/layout_dialog_state"
-            app:viewModel="@{viewModel}"
+            layout="@layout/layout_request_state"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:viewModel="@{viewModel}" />
 
         <TextView
-            android:layout_width="0dp"
+            android:id="@+id/error_message"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:gravity="center"
+            android:padding="16dp"
             android:text="@{viewModel.errorDialogConfig.message}"
-            app:layout_constraintBaseline_toBaselineOf="@id/retry"
-            app:layout_constraintEnd_toStartOf="@id/retry"
+            app:layout_constraintBottom_toTopOf="@id/retry"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
             app:visibleOrGone="@{viewModel.isDialogVisible}"
-            tools:text="Error happened" />
+            tools:text="@string/error_message" />
 
         <Button
             android:id="@+id/retry"
@@ -39,8 +43,10 @@
             android:text="@{viewModel.errorDialogConfig.positiveButtonText}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/error_message"
             app:onClick="@{viewModel.errorDialogViewModel::onPositiveButtonClick}"
             app:visibleOrGone="@{viewModel.isDialogVisible}"
-            tools:text="Retry" />
+            tools:text="@string/error_retry" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
