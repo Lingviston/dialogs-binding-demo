@@ -79,6 +79,7 @@ class DialogShowingView @JvmOverloads constructor(
 
         dialog = Dialog(context, dialogStyle).apply {
             setContentView(frameLayout)
+            setCancelable(false)
         }
     }
 
