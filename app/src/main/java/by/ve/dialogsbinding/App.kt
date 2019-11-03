@@ -9,6 +9,8 @@ import by.ve.dialogsbinding.ui.demo.dialog.solution1.Solution1ViewModel
 import by.ve.dialogsbinding.ui.demo.dialog.solution2.ErrorView
 import by.ve.dialogsbinding.ui.demo.dialog.solution2.Solution2ViewModel
 import by.ve.dialogsbinding.ui.demo.dialog.solution3.Solution3ViewModel
+import by.ve.dialogsbinding.ui.demo.toast.ToastsDemoNavigationViewModel
+import by.ve.dialogsbinding.ui.demo.toast.ToastsDemoViewModel
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogNavigator
 import by.ve.dialogsbinding.ui.dialog.fragment.DialogViewModel
 import org.greenrobot.eventbus.EventBus
@@ -52,6 +54,13 @@ class App : Application() {
             viewModel { Solution3ViewModel(get()) }
         }
 
+        val toastsDemoModule = module {
+
+            viewModel { ToastsDemoNavigationViewModel() }
+
+            viewModel { ToastsDemoViewModel() }
+        }
+
         val dialogModule = module {
 
             single { EventBus.getDefault() }
@@ -72,7 +81,8 @@ class App : Application() {
                     chooserActivityModule,
                     solution1ActivityModule,
                     solution2ActivityModule,
-                    solution3ActivityModule
+                    solution3ActivityModule,
+                    toastsDemoModule
                 )
             )
         }

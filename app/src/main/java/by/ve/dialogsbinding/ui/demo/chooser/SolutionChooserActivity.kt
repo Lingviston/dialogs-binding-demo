@@ -12,6 +12,7 @@ import by.ve.dialogsbinding.ui.demo.dialog.solution1.Solution1Activity
 import by.ve.dialogsbinding.ui.demo.dialog.solution2.Solution2Activity
 import by.ve.dialogsbinding.ui.demo.dialog.solution3.ErrorStyle
 import by.ve.dialogsbinding.ui.demo.dialog.solution3.Solution3Activity
+import by.ve.dialogsbinding.ui.demo.toast.ToastsDemoActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.reflect.KClass
 
@@ -34,16 +35,17 @@ class SolutionChooserActivity : AppCompatActivity() {
             observe(solution1SelectedEvent) {
                 startActivity(Solution1Activity::class)
             }
-
             observe(solution2SelectedEvent) {
                 startActivity(Solution2Activity::class)
             }
-
             observe(solution3DialogSelectedEvent) {
                 startSolution3Activity(ErrorStyle.DIALOG)
             }
             observe(solution3EmbedSelectedEvent) {
                 startSolution3Activity(ErrorStyle.EMBED)
+            }
+            observe(toastsDemoSelectedEvent) {
+                startActivity(ToastsDemoActivity::class)
             }
         }
     }

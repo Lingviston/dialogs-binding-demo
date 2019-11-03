@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">DialogsBinding</string>
+
     <string name="solution_1">Solution 1</string>
     <string name="solution_2">Solution 2</string>
     <string name="solution_3_dialog">Solution 3 (Dialog)</string>
     <string name="solution_3_embed">Solution 3 (Embed)</string>
+    <string name="toasts_demo">Toasts demo</string>
     <string name="do_request">Do request</string>
+    <string name="back">Back</string>
+    <string name="show_another_fragment">Show another fragment</string>
 
     <string name="error_title">Error happened</string>
     <string name="error_message">The first request always fails. Press \"Retry\" to try again or \"Cancel\" to dismiss this message.</string>
@@ -14,4 +18,10 @@
     <string name="request_state_not_done">Request NOT DONE</string>
     <string name="request_state_success">Request SUCCESSFUL</string>
     <string name="request_state_failed">Request FAILED</string>
+
+    <string name="show_toast_single_live_event">Show toast via SingleLiveEvent</string>
+    <string name="show_toast_databinding_single_live_event">Show toast via DatabindingSingleLiveEvent</string>
+    <string name="toast_broken_navigation">I am custom toast launched by the \"SingleLiveEvent\". To see the consequences press \"Show another fragment\".</string>
+    <string name="toast_fixed_navigation">I am custom toast launched by the \"DatabindingSingleLiveEvent\". To see the consequences press \"Show another fragment\".</string>
+    <string name="just_another_message">Press \"Back\".\n\nIf you launched this fragment after showing toast via SingleLiveEvent you\'ll see toast again.\n\nIf you launched this fragment after showing toast via DatabindingSingleLiveEvent you will not see it again.</string>
 </resources>

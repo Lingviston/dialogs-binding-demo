@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="navigationViewModel"
+            type="by.ve.dialogsbinding.ui.demo.toast.ToastsDemoNavigationViewModel" />
+
+        <variable
+            name="viewModel"
+            type="by.ve.dialogsbinding.ui.demo.toast.ToastsDemoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <by.ve.dialogsbinding.ui.toast.ToastShowingView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:duration="duration_long"
+            app:gravity="top|fill_horizontal|clip_vertical"
+            app:layout="@layout/layout_toast"
+            app:toastDisplaySignal="@{viewModel.showToastBrokenEvent}"
+            app:toastViewModel="@{viewModel.toastBrokenViewModel}"
+            app:xOffset="0dp"
+            app:yOffset="?attr/actionBarSize"
+            tools:ignore="MissingConstraints" />
+
+        <by.ve.dialogsbinding.ui.toast.ToastShowingView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:duration="duration_long"
+            app:gravity="top|fill_horizontal|clip_vertical"
+            app:layout="@layout/layout_toast"
+            app:toastDisplaySignal="@{viewModel.showToastFixedEvent}"
+            app:toastViewModel="@{viewModel.toastFixedViewModel}"
+            app:xOffset="0dp"
+            app:yOffset="?attr/actionBarSize"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/showToastBroken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_toast_single_live_event"
+            app:layout_constraintBottom_toTopOf="@id/showToastFixed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:onClick="@{viewModel::onShowToastBrokenClick}" />
+
+        <Button
+            android:id="@+id/showToastFixed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_toast_databinding_single_live_event"
+            app:layout_constraintBottom_toTopOf="@id/showAnotherFragment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/showToastBroken"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:onClick="@{viewModel::onShowToastFixedClick}" />
+
+        <Button
+            android:id="@+id/showAnotherFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_another_fragment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/showToastFixed"
+            app:onClick="@{navigationViewModel::onShowAnotherFragmentClick}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -14,6 +14,8 @@ class SolutionChooserViewModel : ViewModel() {
 
     val solution3EmbedSelectedEvent = SingleLiveEvent<Void>()
 
+    val toastsDemoSelectedEvent = SingleLiveEvent<Void>()
+
     fun onSolution1Click() {
         solution1SelectedEvent.call()
     }
@@ -28,5 +30,9 @@ class SolutionChooserViewModel : ViewModel() {
 
     fun onSolution3EmbedClick() {
         solution3EmbedSelectedEvent.call()
+    }
+
+    fun onToastsDemoClick() {
+        toastsDemoSelectedEvent.call()
     }
 }
