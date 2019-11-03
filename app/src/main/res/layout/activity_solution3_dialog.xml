@@ -24,7 +24,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:dialogConfig="@{viewModel.errorDialogConfig}"
-            app:dialogLayout="@layout/dialog_error"
+            app:dialogLayout="@layout/layout_dialog"
             app:dialogStyle="@style/Theme.AppCompat.Dialog"
             app:dialogViewModel="@{viewModel.errorDialogViewModel}"
             app:visibleOrGone="@{viewModel.isDialogVisible}"

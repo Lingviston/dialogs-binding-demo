@@ -53,7 +53,7 @@ class CommonDialogFragment : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) = FrameLayout(requireActivity()).also {
-        DataBindingUtil.inflate<ViewDataBinding>(inflater, R.layout.dialog_error, it, true)
+        DataBindingUtil.inflate<ViewDataBinding>(inflater, R.layout.layout_dialog, it, true)
             ?.apply {
                 lifecycleOwner = viewLifecycleOwner
                 setVariable(BR.viewModel, viewModel)

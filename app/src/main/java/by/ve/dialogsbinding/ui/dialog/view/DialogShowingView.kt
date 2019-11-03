@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
+import androidx.annotation.AttrRes
 import androidx.annotation.LayoutRes
 import androidx.annotation.StyleRes
 import androidx.core.content.res.use
@@ -24,12 +25,12 @@ private const val EMPTY_RESOURCE = -1
 class DialogShowingView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+    @AttrRes defStyleAttr: Int = 0
 ) : View(context, attrs) {
 
-    private var dialog: Dialog
+    private lateinit var dialog: Dialog
 
-    private var binding: ViewDataBinding
+    private lateinit var binding: ViewDataBinding
 
     private var dialogVisibility: Int = GONE
         set(value) {
@@ -51,23 +52,26 @@ class DialogShowingView @JvmOverloads constructor(
         }
 
     init {
-        var dialogStyle = EMPTY_RESOURCE
-        var dialogLayout = EMPTY_RESOURCE
         context.obtainStyledAttributes(attrs, R.styleable.DialogShowingView, defStyleAttr, 0).use {
             @StyleRes
-            dialogStyle =
+            val dialogStyle =
                 it.getResourceId(R.styleable.DialogShowingView_dialogStyle, EMPTY_RESOURCE)
             require(dialogStyle != EMPTY_RESOURCE) {
                 "Dialog style must be defined"
             }
 
             @LayoutRes
-            dialogLayout =
+            val dialogLayout =
                 it.getResourceId(R.styleable.DialogShowingView_dialogLayout, EMPTY_RESOURCE)
             require(dialogLayout != EMPTY_RESOURCE) {
                 "Dialog layout must be defined"
             }
+
+            createDialog(context, dialogLayout, dialogStyle)
         }
+    }
+
+    private fun createDialog(context: Context, @LayoutRes dialogLayout: Int, @StyleRes dialogStyle: Int) {
         val frameLayout = FrameLayout(context)
 
         binding = DataBindingUtil.inflate(
@@ -91,9 +95,7 @@ class DialogShowingView @JvmOverloads constructor(
         dialogVisibility = visibility
     }
 
-    override fun getVisibility(): Int {
-        return dialogVisibility
-    }
+    override fun getVisibility() = dialogVisibility
 
     /**
      * Sometimes while showing the dialog we need to replace its holder fragment or activity. In this case we
